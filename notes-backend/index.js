@@ -1,8 +1,8 @@
 const express = require('express');
 require('dotenv').config();
-app.use(express.static('dist'))
 const cors = require('cors')
 const app = express();
+
 const PORT = process.env.PORT || 4001
 
 
@@ -14,6 +14,7 @@ const requestLogger = (request, response, next) => {
   next()
 }
 
+app.use(express.static('dist'));
 app.use(cors());
 app.use(requestLogger);
 app.use(express.json());
